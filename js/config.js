@@ -4,8 +4,8 @@
 
 const CFG = {
   supabase: {
-    url: '',
-    anonKey: ''
+    url: 'https://tiosonrfllgducejhvqc.supabase.co',
+    anonKey: 'sb_publishable_y6_l21iYHeQxDHxHPEXzyA_YK7L--Qb'
   },
   shop: {
     currency: '₱',
