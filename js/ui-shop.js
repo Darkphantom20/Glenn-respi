@@ -25,7 +25,7 @@ function shopShell() {
 
       </nav>
       <div class="spacer"></div>
-      <button class="btn ghost sm" data-act="admin-open"> Owner Dashboard</button>
+      <button class="btn ghost sm" data-act="admin-open">${supa ? ' Owner Dashboard' : ' Connect Shop'}</button>
     </div>
   </header>
 
@@ -140,8 +140,8 @@ function renderShopGrid() {
   if (!list.length) {
     grid.innerHTML = `<div class="empty-state">
       <span class="big">🌾</span>
-      <strong>No rice found</strong><br>
-      <span class="muted">Try a different search or variety.</span>
+      <strong>${supa ? 'No rice found' : 'The shop is getting ready'}</strong><br>
+      <span class="muted">${supa ? 'Try a different search or variety.' : 'The owner needs to connect the shop before products can appear.'}</span>
     </div>`;
     return;
   }

@@ -187,6 +187,12 @@ document.addEventListener('click', async e => {
       return;
 
     case 'admin-open':
+      if (!supa) {
+        state.view = 'setup';
+        render();
+        window.scrollTo(0, 0);
+        return;
+      }
       state.view = 'admin';
       state.adminTab = 'overview';
       render();
@@ -539,13 +545,13 @@ document.addEventListener('drop', async e => {
 
   const creds = getCreds();
   if (!creds || !creds.url || !creds.key) {
-    state.view = 'setup';
+    state.view = 'shop';
     render();
     return;
   }
 
   if (!initSupabase()) {
-    state.view = 'setup';
+    state.view = 'shop';
     state.setupError = 'Supabase client could not be initialized. Please re-enter your credentials.';
     render();
     return;
@@ -558,9 +564,11 @@ document.addEventListener('drop', async e => {
     render();
   } catch (err) {
     console.error('Boot error:', err);
-    state.view = 'setup';
     state.setupError = 'Connected, but could not read your tables: ' + (err.message || err) +
                        ' — make sure you ran the setup SQL.';
+    supa = null;
+    state.view = 'shop';
     render();
+    toast('Could not connect to the shop. Select Connect Shop to check the setup.', 'err');
   }
 })();
