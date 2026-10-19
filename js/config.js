@@ -9,7 +9,7 @@ const CFG = {
   },
   shop: {
     currency: '₱',
-    adminPassword: 'CHANGE_ME_LOCALLY',  // prototype-only gate; replace with Supabase Auth later
+    adminPassword: 'admin123',  // prototype-only gate; replace with Supabase Auth later
     defaultDeliveryFee: 100,
     defaultFreeDeliveryOver: 1500,
     photoBucket: 'rice-photos'           // Supabase Storage bucket for uploaded rice photos
